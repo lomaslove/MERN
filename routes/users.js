@@ -19,14 +19,7 @@ router.get('/', async (req, res) => {
 // @route   GET /api/users/:id
 // @desc    Get a specific user
 // @access  Public
-router.get('/:id', async (req, res) => {
-  try {
-    const user = await Users.findById(req.params.id);
-    res.send({ user });
-  } catch (err) {
-    res.status(404).send({ message: 'User not found!' });
-  }
-});
+ 
 
 // @route   POST /api/users/
 // @desc    Create a user
