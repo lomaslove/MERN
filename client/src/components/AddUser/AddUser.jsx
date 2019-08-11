@@ -73,7 +73,19 @@ class AddUser extends Component {
             required
             id="age"
           />
-          
+          <label htmlFor="email">Email: </label>
+          <input
+            type="text"
+            placeholder="Email"
+            name="email"
+            onChange={this.onChangeHandler}
+            ref="email"
+            className="Add-User-Input"
+            required
+            minLength=""
+            maxLength=""
+            id="email"
+          />
           <button type="submit" className="Add-User-Submit fa fa-plus"></button>
           <button type="reset" className="Add-User-Reset fa fa-eraser"></button>
         </form>

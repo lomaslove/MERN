@@ -84,7 +84,17 @@ class EditUser extends Component {
             className="Edit-User-Input"
             id="age"
           />
-        
+          <label htmlFor="email">Email: </label>
+          <input
+            type="text"
+            placeholder="Email..."
+            value={ this.state.email }
+            name="email"
+            onChange={this.onChangeHandler}
+            ref="email"
+            className="Edit-User-Input"
+            id="email"
+          />
           <button type="submit" className="Edit-User-Submit fa fa-pencil"></button>
         </form>
         <p>{this.state.response}</p>
