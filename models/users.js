@@ -8,7 +8,13 @@ const userSchema = new mongoose.Schema({
     maxlength: 33,
     trim: true
   },
-
+  genre: {
+    type: String,
+    required: true,
+    maxlength: 6,
+    trim: true,
+    enum: ['Male', 'Female', 'male', 'female']
+  },
   age: {
     type: Number,
     min: 1,
@@ -17,11 +23,13 @@ const userSchema = new mongoose.Schema({
 
   email: {
     type: String,
-    required: true,
-    maxlength: "",
-    trim: true, 
+    required: true
+    
   }
-  
+     
 });
 
 module.exports = mongoose.model('users', userSchema);
+
+
+
