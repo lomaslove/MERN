@@ -10,7 +10,10 @@ const userSchema = new mongoose.Schema({
   },
   genre: {
     type: String,
-     
+    required: true,
+    maxlength: 6,
+    trim: true,
+    enum: ['Male', 'Female', 'male', 'female']
   },
   age: {
     type: Number,

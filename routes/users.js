@@ -19,14 +19,21 @@ router.get('/', async (req, res) => {
 // @route   GET /api/users/:id
 // @desc    Get a specific user
 // @access  Public
- 
+router.get('/:id', async (req, res) => {
+  try {
+    const user = await Users.findById(req.params.id);
+    res.send({ user });
+  } catch (err) {
+    res.status(404).send({ message: 'User not found!' });
+  }
+});
 
 // @route   POST /api/users/
 // @desc    Create a user
 // @access  Public
 router.post('/', async (req, res) => {
   try {
-    const newUser = await Users.create({ name: req.body.name, genre: req.body.genre, age: req.body.age });
+    const newUser = await Users.create({ name: req.body.name, genre: req.body.genre, age: req.body.age, email: req.body.email });
      res.send({ newUser });
   } catch(err) {
     res.status(400).send({ error: err });
