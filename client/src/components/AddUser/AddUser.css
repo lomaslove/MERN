@@ -18,16 +18,7 @@
   outline: none;
 }
 
-.Add-User-Submit, .Add-User-Reset {
-  width: 45px;
-  height: 40px;
-  color: #fff;
-  border: none;
-  margin-left: 18px;
-  border-radius: 2px;
-  cursor: pointer;
-  outline: none;
-}
+ 
 
 .Add-User-Submit {
   background-color: #3833A5;
