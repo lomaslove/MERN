@@ -7,8 +7,10 @@ class EditUser extends Component {
   state = {
     id: '',
     name: "",
+    genre: "",
     age: "",
-    email: ""
+    email: "",
+    response: ""
   };
 
   onChangeHandler = e => this.setState({ [e.target.name]: e.target.value });
@@ -18,8 +20,8 @@ class EditUser extends Component {
     let search =  this.props.location.search,
       id = search.substring(1, search.length);
     const updateUser = await axios(`/api/users/${id}`);
-    const { name, email, age } = updateUser.data.user;
-    this.setState({ id, name, age , email });
+    const { name, genre, age, email } = updateUser.data.user;
+    this.setState({ id, name, genre, age, email  });
     } catch (err) {
       this.setState({ response: "User not found!" })
     }
@@ -31,7 +33,8 @@ class EditUser extends Component {
       const user = await axios.put(`/api/users/${this.state.id}`, {
         name: this.refs.name.value,
         age: Number(this.refs.age.value),
-        email: this.refs.email.value
+        genre: this.refs.genre.value,
+        email: this.refs.email.value,
       });
       this.setState({response: user.data.message });
     } catch (err) {
@@ -57,7 +60,17 @@ class EditUser extends Component {
             className="Edit-User-Input"
             id="name"
           />
-
+          <label htmlFor="genre">Genre: <b>(must be Male or Female)</b></label>
+          <input
+            type="text"
+            placeholder="Genre..."
+            value={ this.state.genre }
+            name="genre"
+            onChange={this.onChangeHandler}
+            ref="genre"
+            className="Edit-User-Input"
+            id="genre"
+          />
           <label htmlFor="age">Age: </label>
           <input
             type="number"
@@ -71,8 +84,7 @@ class EditUser extends Component {
             className="Edit-User-Input"
             id="age"
           />
-
-          <label htmlFor="genre">Email: <b>(must be ending with .com)</b></label>
+          <label htmlFor="email">Email: </label>
           <input
             type="text"
             placeholder="Email..."
@@ -83,7 +95,6 @@ class EditUser extends Component {
             className="Edit-User-Input"
             id="email"
           />
-         
           <button type="submit" className="Edit-User-Submit fa fa-pencil"></button>
         </form>
         <p>{this.state.response}</p>

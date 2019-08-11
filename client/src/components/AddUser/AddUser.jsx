@@ -5,8 +5,10 @@ import axios from "axios";
 class AddUser extends Component {
   state = {
     name: "",
+    genre: "",
     age: "",
-    email: ""
+    email: "",
+    response: ""
   };
 
   onChangeHandler = e => this.setState({ [e.target.name]: e.target.value });
@@ -17,7 +19,8 @@ class AddUser extends Component {
       const newUser = await axios.post("/api/users/", {
           name: this.refs.name.value,
           age: Number(this.refs.age.value),
-          email: this.refs.email.value
+          genre: this.refs.genre.value,
+          email: this.refs.email.value,
         }
       );
       this.setState({ response: `User ${newUser.data.newUser.name} created!` });
@@ -34,7 +37,7 @@ class AddUser extends Component {
           <label htmlFor="name">Name:</label>
           <input
             type="text"
-            placeholder="For example: Raj Bista"
+            placeholder="First and Last"
             name="name"
             onChange={this.onChangeHandler}
             ref="name"
@@ -44,7 +47,19 @@ class AddUser extends Component {
             maxLength="33"
             id="name"
           />
-          
+          <label htmlFor="genre">Genre: </label>
+          <input
+            type="text"
+            placeholder="Male or Female or Other"
+            name="genre"
+            onChange={this.onChangeHandler}
+            ref="genre"
+            className="Add-User-Input"
+            required
+            minLength="3"
+            maxLength="6"
+            id="genre"
+          />
           <label htmlFor="age">Age: </label>
           <input
             type="number"
@@ -58,7 +73,6 @@ class AddUser extends Component {
             required
             id="age"
           />
-
           <label htmlFor="email">Email: </label>
           <input
             type="text"
@@ -68,8 +82,8 @@ class AddUser extends Component {
             ref="email"
             className="Add-User-Input"
             required
-            minLength="3"
-            maxLength=" "
+            minLength=""
+            maxLength=""
             id="email"
           />
           <button type="submit" className="Add-User-Submit fa fa-plus"></button>

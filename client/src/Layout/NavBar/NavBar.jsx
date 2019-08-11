@@ -7,11 +7,12 @@ const Home = () => {
    <nav className="NavBar-Wrapper">
      <div>
        <Link to="/" className="NavBar-Link">
-       <h3 className="NavBar-Title">MERN Teacher</h3></Link>
+       <h3 className="NavBar-Title">MERN CRUD</h3>
+       </Link>
      </div>
      <div className="NavBar-Links">
-      <Link to="/" className="NavBar-Link">Students</Link>
-      <Link to="/add" className="NavBar-Link">Add Student</Link>
+      <Link to="/" className="NavBar-Link">StudentList</Link>
+      <Link to="/add" className="NavBar-Link">Add</Link>
      </div>
    </nav>
   );

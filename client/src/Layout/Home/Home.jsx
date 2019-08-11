@@ -59,7 +59,7 @@ class Home extends Component {
     if (this.state.error) return <h1>{this.state.error}</h1>;
     if (this.state.data !== null)
       if (!this.state.data.users.length)
-        return <h1 className="No-Users">No students!</h1>;
+        return <h1 className="No-Users">No users!</h1>;
 
     return (
       <div className="Table-Wrapper">
@@ -69,9 +69,9 @@ class Home extends Component {
           <thead>
             <tr>
               <th>Name</th>
+              <th>Genre</th>
               <th>Age</th>
               <th>Email</th>
-             
               <th>Actions</th>
             </tr>
           </thead>
