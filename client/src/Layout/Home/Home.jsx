@@ -17,9 +17,7 @@ class Home extends Component {
     try {
       const users = await axios("/api/users/");
       this.setState({ data: users.data });
-    } catch (err) {
-      this.setState({ error: err.message });
-    }
+    }  
   }
 
   removeUser = async id => {
@@ -28,8 +26,7 @@ class Home extends Component {
       const users = await axios("/api/users/");
       this.setState({ data: users.data });
     } catch (err) {
-      this.setState({ error: err.message });
-    }
+      
   };
 
   searchUsers = async username => {
