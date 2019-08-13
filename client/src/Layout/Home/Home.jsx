@@ -48,13 +48,7 @@ class Home extends Component {
   render() {
     let users;
 
-    if (this.state.data)
-      users =
-        this.state.data.users &&
-        this.state.data.users.map(user => (
-          <User key={user._id} {...user} removeUser={this.removeUser} />
-        ));
-    else return <div className="Spinner-Wrapper"> <GridLoader color={'#333'} /> </div>;
+     
 
     if (this.state.error) return <h1>{this.state.error}</h1>;
     if (this.state.data !== null)
