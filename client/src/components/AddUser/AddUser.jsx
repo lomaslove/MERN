@@ -19,8 +19,7 @@ class AddUser extends Component {
       const newUser = await axios.post("/api/users/", {
           name: this.refs.name.value,
           age: Number(this.refs.age.value),
-          genre: this.refs.genre.value,
-          email: this.refs.email.value,
+          
         }
       );
       this.setState({ response: `User ${newUser.data.newUser.name} created!` });
